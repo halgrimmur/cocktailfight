@@ -59,18 +59,12 @@ public class PlayerController : MonoBehaviour
 		if (_direction == Vector3.up)
 		{
 			UpShadow.GetComponent<Renderer>().enabled = true;
-			foreach (var shadow in shadows)
-			{
-				shadow.enabled = true;
-			}
+			UpShadow.GetComponent<UmbrellaShadow>().enabled = true;
 		}
 		if (_direction == Vector3.down)
 		{
 			DownShadow.GetComponent<Renderer>().enabled = true;
-			foreach (var shadow in shadows)
-			{
-				shadow.enabled = true;
-			}
+			DownShadow.GetComponent<UmbrellaShadow>().enabled = true;
 		}
 	}
 

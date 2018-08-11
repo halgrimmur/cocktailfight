@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa32139e30134b77a360a4c0490555e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeltingTime: 2
+  MeltingTime: 1

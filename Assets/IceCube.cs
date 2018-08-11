@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class IceCube : MonoBehaviour
@@ -43,8 +44,24 @@ public class IceCube : MonoBehaviour
 
 	void Melt()
 	{
-		// TODO add rules for which colors ice turn into which colors drops
-		DropSpawner.Instance.SpawnDrop(transform.position, Color);
+		if (Color == CocktailColors.Blue || Color == CocktailColors.Red || Color == CocktailColors.Yellow)
+			DropSpawner.Instance.SpawnDrop(transform.position, Color);
+		else if (Color == CocktailColors.Green)
+		{
+			DropSpawner.Instance.SpawnDrop(transform.position - Vector3.left*0.4f, CocktailColors.Blue);
+			DropSpawner.Instance.SpawnDrop(transform.position + Vector3.left*0.4f, CocktailColors.Yellow);
+		}
+		else if (Color == CocktailColors.Orange)
+		{
+			DropSpawner.Instance.SpawnDrop(transform.position - Vector3.left*0.4f, CocktailColors.Red);
+			DropSpawner.Instance.SpawnDrop(transform.position + Vector3.left*0.4f, CocktailColors.Yellow);
+			
+		}
+		else if (Color == CocktailColors.Purple)
+		{
+			DropSpawner.Instance.SpawnDrop(transform.position - Vector3.left*0.4f, CocktailColors.Blue);
+			DropSpawner.Instance.SpawnDrop(transform.position + Vector3.left*0.4f, CocktailColors.Red);			
+		}
 		Destroy(gameObject);
 	}
 
