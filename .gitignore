@@ -4,3 +4,5 @@ Temp
 Library
 workspace.xml
 contentModel.xml
+obj/
+.vs/

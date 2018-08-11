@@ -61,7 +61,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CocktailColors.cs" />
+    <Compile Include="Assets\CocktailColorType.cs" />
+    <Compile Include="Assets\CubeGraphics.cs" />
+    <Compile Include="Assets\Droplet.cs" />
+    <Compile Include="Assets\DropletGraphics.cs" />
+    <Compile Include="Assets\DropSpawner.cs" />
+    <Compile Include="Assets\HeatSource.cs" />
+    <Compile Include="Assets\IceCube.cs" />
+    <Compile Include="Assets\Pallettes.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\SoundManager.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Unity/JamAugust2018/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
