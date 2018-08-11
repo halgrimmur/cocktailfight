@@ -55,6 +55,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CocktailColors.cs" />
+    <Compile Include="Assets\CocktailColorType.cs" />
+    <Compile Include="Assets\CubeGraphics.cs" />
+    <Compile Include="Assets\Droplet.cs" />
+    <Compile Include="Assets\DropletGraphics.cs" />
+    <Compile Include="Assets\DropSpawner.cs" />
+    <Compile Include="Assets\HeatSource.cs" />
+    <Compile Include="Assets\IceCube.cs" />
+    <Compile Include="Assets\Pallettes.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/christophermielack/Code/Cocktail Fight/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
