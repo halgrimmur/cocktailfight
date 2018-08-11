@@ -63,6 +63,7 @@
     <Compile Include="Assets\DropSpawner.cs" />
     <Compile Include="Assets\HeatSource.cs" />
     <Compile Include="Assets\IceCube.cs" />
+    <Compile Include="Assets\IndividualCubePalette.cs" />
     <Compile Include="Assets\Pallettes.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
