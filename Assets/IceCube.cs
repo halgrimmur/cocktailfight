@@ -63,6 +63,8 @@ public class IceCube : MonoBehaviour
 			DropSpawner.Instance.SpawnDrop(transform.position + Vector3.left*0.4f, CocktailColors.Red);			
 		}
 		Destroy(gameObject);
+		
+		SoundManager.Instance.MeltingSound();
 	}
 
 	public void SetGraphic(int smeltIndex)

@@ -11,6 +11,8 @@ public class CocktailColorSetter : MonoBehaviour
 	public Color Orange;
 	public Color Purple;
 
+	public PercentageDisplay PercentageDisplay;
+	
 	public List<CocktailColors> CaughtDroplets;
 
 	void Awake()
@@ -21,8 +23,28 @@ public class CocktailColorSetter : MonoBehaviour
 	public void CatchDroplet(CocktailColors color)
 	{
 		CaughtDroplets.Add(color);
-		Debug.Log("Caught "+CaughtDroplets.Count);
 		UpdateColor();
+		SoundManager.Instance.CatchSound();
+		UpdatePercentages();
+	}
+
+	void UpdatePercentages()
+	{
+		float red = 0;
+		float blue = 0;
+		float yellow = 0;
+		foreach (var droplet in CaughtDroplets)
+		{
+			if (droplet == CocktailColors.Blue)
+				blue += 1;
+			if (droplet == CocktailColors.Red)
+				red += 1;
+			if (droplet == CocktailColors.Yellow)
+				yellow += 1;
+		}
+
+		PercentageDisplay.UpdatePercent(red / CaughtDroplets.Count, blue / CaughtDroplets.Count,
+			yellow / CaughtDroplets.Count);
 	}
 
 	void OnTriggerEnter(Collider other)
