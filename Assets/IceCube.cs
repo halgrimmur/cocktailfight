@@ -33,6 +33,7 @@ public class IceCube : MonoBehaviour
 		}
 
 		SmeltGraphicIndex = Mathf.RoundToInt((1-Icyness) / 0.25f);
+		UpdateIllumination();
 	}
 
 	void Start()
@@ -51,5 +52,33 @@ public class IceCube : MonoBehaviour
 	{
 		var bla = Pallettes.Instance.CubeGraphics.GetByColor(Color);
 		Graphic.sprite = bla.GetComponent<IndividualCubePalette>().MeltingStates[smeltIndex];
+	}
+
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.GetComponent<UmbrellaShadow>() != null)
+		{
+			IsIlluminated = false;
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.GetComponent<UmbrellaShadow>() != null)
+		{
+			IsIlluminated = true;
+		}
+	}
+
+	private void UpdateIllumination()
+	{
+		if (IsIlluminated)
+		{
+			Graphic.color = UnityEngine.Color.white;
+		}
+		else {
+			Graphic.color = UnityEngine.Color.gray;
+		}
 	}
 }
