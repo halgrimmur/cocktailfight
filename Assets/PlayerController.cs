@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
 	private string _rotateDownName;
 
 	private Quaternion _rotation;
-	
+	readonly Vector3 baseRotation = Vector3.up;
+
 	void Start ()
 	{
 		_horizontalMoveAxisName = "Horizontal " + PlayerId;
@@ -27,6 +28,11 @@ public class PlayerController : MonoBehaviour
 		_rotateRightName = "RRight " + PlayerId;
 		_rotateDownName = "RDown " + PlayerId;
 	}
+
+	private bool CanCollectDrops()
+	{
+		return _rotation == Quaternion.FromToRotation(baseRotation, Vector3.down);
+	}
 	
 	void Update () {
 		var steer = new Vector3(Input.GetAxis(_horizontalMoveAxisName), Input.GetAxis(_verticalMoveAxisName));
@@ -36,14 +42,15 @@ public class PlayerController : MonoBehaviour
 
 		GetComponent<Rigidbody>().velocity = steer * Time.deltaTime * Velocity;
 
-		GetPlayerRotation();
+		//GetPlayerRotationFromButtonPress();
+		GetPlayerRotationFromMovement(steer);
 		transform.localRotation = _rotation;
 
 	}
 
-	private void GetPlayerRotation()
+	
+	private void GetPlayerRotationFromButtonPress()
 	{
-		var baseRotation = Vector3.up;
 		if (Input.GetButtonDown(_rotateLeftName))
 		{
 			_rotation = Quaternion.FromToRotation(baseRotation, Vector3.left);
@@ -59,6 +66,34 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonDown(_rotateDownName))
 		{
 			_rotation = Quaternion.FromToRotation(baseRotation, Vector3.down);
+		}
+	}
+
+	private void GetPlayerRotationFromMovement(Vector3 steer)
+	{
+		// majority axis == x
+		if (Mathf.Abs(steer.x) > Mathf.Abs(steer.y))
+		{
+			if (steer.x > 0)
+			{
+				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.right);
+			}
+			else if (steer.x < 0)
+			{
+				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.left);
+			}
+		}
+		// majority axis == y
+		else
+		{
+			if (steer.y > 0)
+			{
+				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.up);
+			}
+			else if (steer.y < 0)
+			{
+				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.down);
+			}			
 		}
 	}
 }
