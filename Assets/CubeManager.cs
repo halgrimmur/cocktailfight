@@ -44,8 +44,17 @@ public class CubeManager : MonoBehaviour
 
 	CocktailColors RandomColor()
 	{
-		return new CocktailColors[] {CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow}[
-			Random.Range(0,3) ];
+		var clrs = new CocktailColors[]
+		{
+			CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
+			//CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
+			//CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
+			CocktailColors.Green, CocktailColors.Orange, CocktailColors.Purple
+		};
+		var rndm = clrs[
+			Random.Range(0, clrs.Length)];
+		Debug.Log(rndm);
+		return rndm;
 	}
 	
 }
