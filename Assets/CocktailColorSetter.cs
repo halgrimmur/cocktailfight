@@ -11,6 +11,10 @@ public class CocktailColorSetter : MonoBehaviour
 	public Color Orange;
 	public Color Purple;
 
+	public GameObject CocktailLiquid;
+
+	public int MaxDroplets = 50;
+	
 	public PercentageDisplay PercentageDisplay;
 	
 	public List<CocktailColors> CaughtDroplets;
@@ -26,6 +30,14 @@ public class CocktailColorSetter : MonoBehaviour
 		UpdateColor();
 		SoundManager.Instance.CatchSound();
 		UpdatePercentages();
+		SetFillingPercent((float)CaughtDroplets.Count / MaxDroplets);
+	}
+
+	public void SetFillingPercent(float p)
+	{
+		var sc = CocktailLiquid.transform.localScale;
+		sc.x = Mathf.Lerp(0.1f, 1.09f, p);
+		CocktailLiquid.transform.localScale = sc;
 	}
 
 	void UpdatePercentages()

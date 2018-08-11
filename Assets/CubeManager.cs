@@ -47,7 +47,7 @@ public class CubeManager : MonoBehaviour
 		var clrs = new CocktailColors[]
 		{
 			CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
-			//CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
+			CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
 			//CocktailColors.Blue, CocktailColors.Red, CocktailColors.Yellow,
 			CocktailColors.Green, CocktailColors.Orange, CocktailColors.Purple
 		};
