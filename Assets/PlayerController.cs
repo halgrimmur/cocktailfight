@@ -6,19 +6,21 @@ public class PlayerController : MonoBehaviour
 {
 
 	public int PlayerId;
-	private string _hAxisName;
-	private string _vAxisName;
+	public float Velocity = 2f;
+	private string _horizontalMoveAxisName;
+	private string _verticalMoveAxisName;
 	
-	// Use this for initialization
 	void Start ()
 	{
-		_hAxisName = "Horizontal " + PlayerId;
-		_vAxisName = "Vertical " + PlayerId;
+		_horizontalMoveAxisName = "Horizontal " + PlayerId;
+		_verticalMoveAxisName = "Vertical " + PlayerId;
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		var steer = new Vector3(Input.GetAxis(_hAxisName), Input.GetAxis(_vAxisName));
+		var steer = new Vector3(Input.GetAxis(_horizontalMoveAxisName), Input.GetAxis(_verticalMoveAxisName));
 		Debug.Log(steer);
+		if (steer.sqrMagnitude > 1)
+			steer = steer.normalized;
+		transform.position += steer*Time.deltaTime*Velocity;
 	}
 }
