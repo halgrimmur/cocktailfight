@@ -57,7 +57,8 @@ public class IceCube : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.GetComponent<UmbrellaShadow>() != null)
+		if (other.gameObject.GetComponent<UmbrellaShadow>() != null &&
+		    other.gameObject.GetComponent<UmbrellaShadow>().enabled)
 		{
 			IsIlluminated = false;
 		}

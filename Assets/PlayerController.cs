@@ -50,14 +50,27 @@ public class PlayerController : MonoBehaviour
 		transform.localRotation = _rotation;
 		UpShadow.GetComponent<Renderer>().enabled = false;
 		DownShadow.GetComponent<Renderer>().enabled = false;
-
+		var shadows = GetComponentsInChildren<UmbrellaShadow>();
+		foreach (var shadow in shadows)
+		{
+			shadow.enabled = false;
+		}
+		
 		if (_direction == Vector3.up)
 		{
 			UpShadow.GetComponent<Renderer>().enabled = true;
+			foreach (var shadow in shadows)
+			{
+				shadow.enabled = true;
+			}
 		}
 		if (_direction == Vector3.down)
 		{
 			DownShadow.GetComponent<Renderer>().enabled = true;
+			foreach (var shadow in shadows)
+			{
+				shadow.enabled = true;
+			}
 		}
 	}
 
