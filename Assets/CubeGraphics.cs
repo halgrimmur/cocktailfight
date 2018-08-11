@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class CubeGraphics : MonoBehaviour
 {
-	public Sprite RedCube;
-	public Sprite OrangeCube;
-	public Sprite YellowCube;
-	public Sprite GreenCube;
-	public Sprite BlueCube;
-	public Sprite PurpleCube;
+	public GameObject RedCube;
+	public GameObject OrangeCube;
+	public GameObject YellowCube;
+	public GameObject GreenCube;
+	public GameObject BlueCube;
+	public GameObject PurpleCube;
+
+	public GameObject GetByColor(CocktailColors color)
+	{
+		var dict = new Dictionary<CocktailColors, GameObject>
+		{
+			{CocktailColors.Blue, BlueCube},
+			{CocktailColors.Green, GreenCube },
+			{CocktailColors.Orange, OrangeCube},
+			{CocktailColors.Purple, PurpleCube},
+			{CocktailColors.Red, RedCube},
+			{CocktailColors.Yellow, YellowCube}
+		};
+		return dict[color];
+	}
 }

@@ -11,19 +11,26 @@ public class PlayerController : MonoBehaviour
 	private string _verticalMoveAxisName;
 
 	private Quaternion _rotation;
+	private Vector3 _direction;
+	
 	readonly Vector3 baseRotation = Vector3.up;
+
+	public GameObject UpShadow;
+	public GameObject DownShadow;
 
 	public CocktailColors CurrentColor = CocktailColors.None;
 
 	void Start ()
 	{
 		_horizontalMoveAxisName = "Horizontal " + PlayerId;
-		_verticalMoveAxisName = "Vertical " + PlayerId;		
+		_verticalMoveAxisName = "Vertical " + PlayerId;
+		GetPlayerRotationFromMovement(Vector3.up);
+		UpdatePlayerRotation();
 	}
 
 	private bool CanCollectDrops()
 	{
-		return _rotation == Quaternion.FromToRotation(baseRotation, Vector3.down);
+		return _direction == Vector3.down;
 	}
 	
 	void Update () {
@@ -34,10 +41,37 @@ public class PlayerController : MonoBehaviour
 
 		GetComponent<Rigidbody>().velocity = steer * Time.deltaTime * Velocity;
 
-		//GetPlayerRotationFromButtonPress();
 		GetPlayerRotationFromMovement(steer);
-		transform.localRotation = _rotation;
+		UpdatePlayerRotation();
+	}
 
+	private void UpdatePlayerRotation()
+	{
+		transform.localRotation = _rotation;
+		UpShadow.GetComponent<Renderer>().enabled = false;
+		DownShadow.GetComponent<Renderer>().enabled = false;
+		var shadows = GetComponentsInChildren<UmbrellaShadow>();
+		foreach (var shadow in shadows)
+		{
+			shadow.enabled = false;
+		}
+		
+		if (_direction == Vector3.up)
+		{
+			UpShadow.GetComponent<Renderer>().enabled = true;
+			foreach (var shadow in shadows)
+			{
+				shadow.enabled = true;
+			}
+		}
+		if (_direction == Vector3.down)
+		{
+			DownShadow.GetComponent<Renderer>().enabled = true;
+			foreach (var shadow in shadows)
+			{
+				shadow.enabled = true;
+			}
+		}
 	}
 
 	private void GetPlayerRotationFromMovement(Vector3 steer)
@@ -47,11 +81,11 @@ public class PlayerController : MonoBehaviour
 		{
 			if (steer.x > 0)
 			{
-				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.right);
+				_direction = Vector3.right;
 			}
 			else if (steer.x < 0)
 			{
-				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.left);
+				_direction = Vector3.left;
 			}
 		}
 		// majority axis == y
@@ -59,12 +93,14 @@ public class PlayerController : MonoBehaviour
 		{
 			if (steer.y > 0)
 			{
-				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.up);
+				_direction = Vector3.up;
 			}
 			else if (steer.y < 0)
 			{
-				_rotation = Quaternion.FromToRotation(baseRotation, Vector3.down);
+				_direction = Vector3.down;
 			}			
 		}
+		_rotation = Quaternion.FromToRotation(baseRotation, _direction);
+
 	}
 }
