@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CocktailColorSetter : MonoBehaviour
@@ -19,6 +21,9 @@ public class CocktailColorSetter : MonoBehaviour
 	
 	public List<CocktailColors> CaughtDroplets;
 
+	public UiManager UiManager;
+	public string PlayerName;
+
 	void Awake()
 	{
 		CaughtDroplets = new List<CocktailColors>();
@@ -31,6 +36,31 @@ public class CocktailColorSetter : MonoBehaviour
 		SoundManager.Instance.CatchSound();
 		UpdatePercentages();
 		SetFillingPercent((float)CaughtDroplets.Count / MaxDroplets);
+
+		if (CaughtDroplets.Count == MaxDroplets)
+		{
+			var allGlasses = FindObjectsOfType<CocktailColorSetter>();
+			var dict = new Dictionary<string, float>();
+			foreach (var glass in allGlasses)
+			{
+				var totalCount = glass.CaughtDroplets.Count;
+				var redCount = glass.CaughtDroplets.Count(x => x == CocktailColors.Red);
+				float percentage = 0;
+				if (totalCount!=0)
+					percentage = redCount / totalCount;
+				dict.Add(glass.PlayerName, percentage);
+			}
+
+			var maxPercentage = dict.Values.Max();
+			foreach (var glass in dict)
+			{
+				if (glass.Value == maxPercentage)
+				{
+					UiManager.ShowWinScreen(glass.Key);
+					return;
+				}
+			}
+		}
 	}
 
 	public void SetFillingPercent(float p)
