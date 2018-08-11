@@ -113,6 +113,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &19733083
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248815175787204, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+      propertyPath: m_Name
+      value: Red Ice Cube (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,11 +234,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.33
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.87
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4567747443174152, guid: f1bd524e460794492aca43f0a11920ef, type: 2}
       propertyPath: m_LocalPosition.z
@@ -564,11 +610,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114870268383706064, guid: f1afc29d851694669a7710c1c800d4f1,
-        type: 2}
-      propertyPath: MeltingTime
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1afc29d851694669a7710c1c800d4f1, type: 2}
   m_IsPrefabAsset: 0
@@ -799,6 +840,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1016769685
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588034060682810, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_Name
+      value: Yellow Ice Cube (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1236871155
 Prefab:
   m_ObjectHideFlags: 0
@@ -1096,6 +1183,52 @@ Transform:
   m_Father: {fileID: 821300747}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1817577118
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560039119604428, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588034060682810, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+      propertyPath: m_Name
+      value: Yellow Ice Cube (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38bc4cff128534461a718ff64c96ef4f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1865486725
 Prefab:
   m_ObjectHideFlags: 0
