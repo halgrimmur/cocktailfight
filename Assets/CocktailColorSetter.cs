@@ -47,7 +47,7 @@ public class CocktailColorSetter : MonoBehaviour
 				var redCount = glass.CaughtDroplets.Count(x => x == CocktailColors.Red);
 				float percentage = 0;
 				if (totalCount!=0)
-					percentage = redCount / totalCount;
+					percentage = (float)redCount / totalCount;
 				dict.Add(glass.PlayerName, percentage);
 			}
 
@@ -56,6 +56,15 @@ public class CocktailColorSetter : MonoBehaviour
 			{
 				if (glass.Value == maxPercentage)
 				{
+					FindObjectOfType<CubeManager>().gameObject.SetActive(false);
+					foreach (var iceCube in FindObjectsOfType<IceCube>())
+					{
+						Destroy(iceCube.gameObject);
+					}
+					foreach (var iceCube in FindObjectsOfType<Droplet>())
+					{
+						Destroy(iceCube.gameObject);
+					}
 					UiManager.ShowWinScreen(glass.Key);
 					return;
 				}
