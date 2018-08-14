@@ -109,15 +109,20 @@ public class CocktailColorSetter : MonoBehaviour
 
 	void UpdateColor()
 	{
-		var avgColor = Color.black;
-		foreach (var droplet in CaughtDroplets)
-		{
-			avgColor += Color.white - ToColor(droplet);
-		}
-
-		avgColor = Color.white - (avgColor / CaughtDroplets.Count);
+		var avgColor = GetSubtractiveAverageColor(CaughtDroplets.Select(ToColor).ToList());
 
 		GetComponent<Renderer>().material.color = avgColor;
+	}
+
+	Color GetSubtractiveAverageColor(List<Color> colors)
+	{
+		var invertedColorSum = Color.black;
+		foreach (var color in colors)
+		{
+			invertedColorSum += Color.white - color;
+		}
+
+		return Color.white - invertedColorSum / colors.Count;
 	}
 
 	Color ToColor(CocktailColors clr)
